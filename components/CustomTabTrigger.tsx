@@ -1,40 +1,59 @@
+import { useEffect, useRef } from "react";
 import { useTabTrigger } from "expo-router/ui";
-import { StyleSheet, View, ViewProps } from "react-native";
+import { Animated, StyleSheet, ViewProps } from "react-native";
 
-import { ColorsType } from "@/constants/ThemeColors";
 import { useThemeColors } from "@/hooks/useThemeColors";
 
 type CustomTabTriggerProps = ViewProps & {
   name: string;
-}
+};
 
 export function CustomTabTrigger({ name, ...rest }: CustomTabTriggerProps) {
   const trigger = useTabTrigger({ name });
   const focused = trigger.trigger?.isFocused;
 
   const colors = useThemeColors();
-  const styles = createStyles(colors);
+
+  const animate = useRef(new Animated.Value(focused ? 1 : 0)).current;
+
+  useEffect(() => {
+    Animated.timing(animate, {
+      toValue: focused ? 1 : 0,
+      duration: 250,
+      useNativeDriver: true,
+    }).start();
+  }, [focused, animate]);
+
+  const backgroundColor = animate.interpolate({
+    inputRange: [0, 1],
+    outputRange: [colors.background_thick, colors.background],
+  });
+
+  const scaleAnimate = animate.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.75, 1],
+  })
 
   return (
-    <View
+    <Animated.View
       style={[
         styles.default,
-        focused && styles.active
+        {
+          backgroundColor,
+          transform: [{
+            scale: scaleAnimate
+          }]
+        }
       ]}
       {...rest}
     />
   );
 }
 
-const createStyles = (colors: ColorsType) => (
-  StyleSheet.create({
-    default: {
-      paddingVertical: 12,
-      paddingHorizontal: 30
-    },
-    active: {
-      backgroundColor: colors.background,
-      borderRadius: 9999
-    }
-  })
-)
+const styles = StyleSheet.create({
+  default: {
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    borderRadius: 999
+  },
+});

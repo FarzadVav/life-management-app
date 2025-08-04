@@ -11,7 +11,7 @@ export default function ScreenView(props: ViewProps) {
       style={{
         flex: 1,
         backgroundColor: colors.background,
-        paddingTop: Constants.statusBarHeight,
+        paddingTop: Constants.statusBarHeight + 10,
         paddingHorizontal: 10,
         paddingBottom: 10
       }}

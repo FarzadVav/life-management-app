@@ -1,64 +1,47 @@
-import { TabList, Tabs, TabSlot, TabTrigger } from 'expo-router/ui';
+import { Tabs } from 'expo-router';
 import { HomeIcon, ListTodoIcon, PencilLineIcon } from 'lucide-react-native';
 
-import { CustomTabTrigger } from '@/components/CustomTabTrigger';
 import { useThemeColors } from '@/hooks/useTheme';
 
 export default function TabsLayout() {
   const { colors } = useThemeColors();
 
   return (
-    <Tabs>
-      <TabSlot />
-
-      <TabList
-        style={{
-          height: 80,
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: colors.foreground,
+        tabBarInactiveTintColor: colors.background,
+        tabBarStyle: {
           backgroundColor: colors.background_thick,
-          borderTopColor: colors.background_thin,
           borderTopWidth: 2,
-          alignItems: "center"
+          borderColor: colors.background_thin,
+          height: 70,
+          paddingTop: 15,
+        },
+        headerShown: false
+      }}
+    >
+      <Tabs.Screen
+        name="journals"
+        options={{
+          title: "",
+          tabBarIcon: ({ color, size }) => <PencilLineIcon color={color} size={size} />
         }}
-      >
-        <TabTrigger
-          style={{
-            flex: 1,
-            alignItems: "center"
-          }}
-          name="journals"
-          href="/journals"
-        >
-          <CustomTabTrigger name='journals'>
-            <PencilLineIcon color={colors.foreground} size={24} />
-          </CustomTabTrigger>
-        </TabTrigger>
-
-        <TabTrigger
-          style={{
-            flex: 1,
-            alignItems: "center"
-          }}
-          name="checklist"
-          href="/checklist"
-        >
-          <CustomTabTrigger name='checklist'>
-            <ListTodoIcon color={colors.foreground} size={24} />
-          </CustomTabTrigger>
-        </TabTrigger>
-
-        <TabTrigger
-          style={{
-            flex: 1,
-            alignItems: "center"
-          }}
-          name="home"
-          href="/"
-        >
-          <CustomTabTrigger name='home'>
-            <HomeIcon color={colors.foreground} size={24} />
-          </CustomTabTrigger>
-        </TabTrigger>
-      </TabList>
+      />
+      <Tabs.Screen
+        name="checklist"
+        options={{
+          title: "",
+          tabBarIcon: ({ color, size }) => <ListTodoIcon color={color} size={size} />
+        }}
+      />
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "",
+          tabBarIcon: ({ color, size }) => <HomeIcon color={color} size={size} />
+        }}
+      />
     </Tabs>
   )
 }

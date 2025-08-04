@@ -1,10 +1,10 @@
 import Constants from "expo-constants";
 import { View, ViewProps } from "react-native";
 
-import { useThemeColors } from "@/hooks/useThemeColors";
+import { useThemeColors } from "@/hooks/useTheme";
 
 export default function ScreenView(props: ViewProps) {
-  const colors = useThemeColors();
+  const { colors } = useThemeColors();
 
   return (
     <View

@@ -10,7 +10,7 @@ const primary_thin = "#3690cc",
   primary = "#115d9b",
   primary_thick = "#062d5c";
 
-export type ColorsType = {
+export type ColorsT = {
   background_thin: string;
   background: string;
   background_thick: string;
@@ -22,12 +22,12 @@ export type ColorsType = {
   primary_thick: string;
 }
 
-export type ThemeColorsType = {
-  light: ColorsType;
-  dark: ColorsType;
+export type ThemeColorsT = {
+  light: ColorsT;
+  dark: ColorsT;
 }
 
-export const ThemeColors: ThemeColorsType = {
+export const ThemeColors: ThemeColorsT = {
   light: {
     background_thin: white_thin,
     background: white,

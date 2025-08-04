@@ -1,11 +1,11 @@
-import { Tabs, TabList, TabTrigger, TabSlot } from 'expo-router/ui';
+import { TabList, Tabs, TabSlot, TabTrigger } from 'expo-router/ui';
 import { HomeIcon, ListTodoIcon, PencilLineIcon } from 'lucide-react-native';
 
-import { useThemeColors } from '@/hooks/useThemeColors';
 import { CustomTabTrigger } from '@/components/CustomTabTrigger';
+import { useThemeColors } from '@/hooks/useTheme';
 
 export default function TabsLayout() {
-  const colors = useThemeColors();
+  const { colors } = useThemeColors();
 
   return (
     <Tabs>

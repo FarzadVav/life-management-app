@@ -5,5 +5,7 @@ import { ThemeColors } from "@/constants/ThemeColors";
 export function useThemeColors() {
   const theme = useColorScheme() ?? "light";
 
-  return ThemeColors[theme];
+  const colors = ThemeColors[theme];
+
+  return { theme, colors };
 }

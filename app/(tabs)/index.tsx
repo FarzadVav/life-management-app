@@ -36,15 +36,19 @@ export default function IndexScreen() {
         </TouchableOpacity>
       </Link>
 
-      <TouchableOpacity style={[UIStyles.flexAlign, styles.box]}>
-        <ThemeText>Weekly plan</ThemeText>
-        <ChevronRightIcon color={colors.foreground} size={Sizes.icon} />
-      </TouchableOpacity>
+      <Link style={[UIStyles.flexAlign, styles.box]} href={"/(index)/weekly-plan"} asChild>
+        <TouchableOpacity>
+          <ThemeText>Weekly plan</ThemeText>
+          <ChevronRightIcon color={colors.foreground} size={Sizes.icon} />
+        </TouchableOpacity>
+      </Link>
 
-      <TouchableOpacity style={[UIStyles.flexAlign, styles.box]}>
-        <ThemeText>Inbox plan</ThemeText>
-        <ChevronRightIcon color={colors.foreground} size={Sizes.icon} />
-      </TouchableOpacity>
+      <Link style={[UIStyles.flexAlign, styles.box]} href={"/(index)/inbox"} asChild>
+        <TouchableOpacity>
+          <ThemeText>Inbox</ThemeText>
+          <ChevronRightIcon color={colors.foreground} size={Sizes.icon} />
+        </TouchableOpacity>
+      </Link>
     </ScreenView>
   );
 }

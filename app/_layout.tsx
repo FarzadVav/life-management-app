@@ -53,6 +53,20 @@ export default function RootLayout() {
             headerShown: true
           }}
         />
+        <Stack.Screen
+          name="(index)/weekly-plan"
+          options={{
+            title: "Weekly plan",
+            headerShown: true
+          }}
+        />
+        <Stack.Screen
+          name="(index)/inbox"
+          options={{
+            title: "Inbox",
+            headerShown: true
+          }}
+        />
       </Stack>
 
       <StatusBar style="auto" />

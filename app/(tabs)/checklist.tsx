@@ -1,12 +1,12 @@
-import { useState } from "react";
 import { Link } from "expo-router";
+import { useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
-import { Sizes } from "@/constants/Sizes";
-import { useTheme } from "@/hooks/useTheme";
 import ScreenView from "@/components/ScreenView";
-import { ColorsT } from "@/constants/ThemeColors";
 import ThemeText from "@/components/theme/ThemeText";
+import { Sizes } from "@/constants/Sizes";
+import { ColorsT } from "@/constants/ThemeColors";
+import { useTheme } from "@/hooks/useTheme";
 import { createUIStyles } from "@/utils/uiStyles";
 
 export default function ChecklistScreen() {
@@ -19,13 +19,13 @@ export default function ChecklistScreen() {
 
   return (
     <ScreenView>
-      <Link style={[uiStyles.flexAlign, uiStyles.box]} href={"/(journals)/goals"} asChild>
+      <Link style={[uiStyles.rowCenter, uiStyles.box]} href={"/(journals)/goals"} asChild>
         <TouchableOpacity>
           <ThemeText>Goals</ThemeText>
         </TouchableOpacity>
       </Link>
 
-      <View style={[uiStyles.flexAlign, styles.tabs]}>
+      <View style={[uiStyles.rowCenter, styles.tabs]}>
         <TouchableOpacity
           style={[styles.tab, activeTab === "todos" ? styles.activeTab : null]}
           onPress={() => setActiveTab("todos")}

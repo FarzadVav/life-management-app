@@ -5,9 +5,27 @@ import { ColorsT } from "@/constants/ThemeColors";
 
 export const createUIStyles = (colors: ColorsT) => (
   StyleSheet.create({
-    flexAlign: {
+    rowAlign: {
       flexDirection: "row",
       alignItems: "center"
+    },
+    columnAlign: {
+      flexDirection: "column",
+      justifyContent: "center"
+    },
+    rowCenter: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center"
+    },
+    columnCenter: {
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center"
+    },
+    heading: {
+      fontSize: 18,
+      fontWeight: "bold"
     },
     btn: {
       height: Sizes.btnHeight,
@@ -28,7 +46,6 @@ export const createUIStyles = (colors: ColorsT) => (
     box: {
       marginTop: Sizes.spacing.md,
       backgroundColor: colors.background_thick,
-      justifyContent: "center",
       height: 100,
       borderRadius: 30
     },

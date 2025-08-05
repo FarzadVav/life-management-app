@@ -2,11 +2,11 @@ import { Link } from "expo-router";
 import { SettingsIcon, UserIcon } from "lucide-react-native";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
+import ScreenView from "@/components/ScreenView";
+import ThemeText from "@/components/theme/ThemeText";
 import { Sizes } from "@/constants/Sizes";
 import { useTheme } from "@/hooks/useTheme";
-import ScreenView from "@/components/ScreenView";
 import { createUIStyles } from "@/utils/uiStyles";
-import ThemeText from "@/components/theme/ThemeText";
 
 export default function IndexScreen() {
   const { colors } = useTheme();
@@ -15,7 +15,7 @@ export default function IndexScreen() {
 
   return (
     <ScreenView>
-      <View style={[uiStyles.flexAlign, styles.topBar]}>
+      <View style={[uiStyles.rowCenter, styles.topBar]}>
         <TouchableOpacity style={[uiStyles.btnIcon]}>
           <SettingsIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
@@ -28,19 +28,19 @@ export default function IndexScreen() {
         </TouchableOpacity>
       </View>
 
-      <Link style={[uiStyles.flexAlign, uiStyles.box]} href={"/(index)/daily-plan"} asChild>
+      <Link style={[uiStyles.rowCenter, uiStyles.box]} href={"/(index)/daily-plan"} asChild>
         <TouchableOpacity>
           <ThemeText>Daily plan</ThemeText>
         </TouchableOpacity>
       </Link>
 
-      <Link style={[uiStyles.flexAlign, uiStyles.box]} href={"/(index)/weekly-plan"} asChild>
+      <Link style={[uiStyles.rowCenter, uiStyles.box]} href={"/(index)/weekly-plan"} asChild>
         <TouchableOpacity>
           <ThemeText>Weekly plan</ThemeText>
         </TouchableOpacity>
       </Link>
 
-      <Link style={[uiStyles.flexAlign, uiStyles.box]} href={"/(index)/inbox"} asChild>
+      <Link style={[uiStyles.rowCenter, uiStyles.box]} href={"/(index)/inbox"} asChild>
         <TouchableOpacity>
           <ThemeText>Inbox</ThemeText>
         </TouchableOpacity>

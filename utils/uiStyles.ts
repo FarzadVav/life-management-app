@@ -3,6 +3,11 @@ import { StyleSheet } from "react-native";
 import { Sizes } from "@/constants/Sizes";
 
 export const UIStyles = StyleSheet.create({
+  flexAlign: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Sizes.spacing.sm
+  },
   btn: {
     height: Sizes.btnHeight,
     paddingHorizontal: Sizes.btnHeight / 2,

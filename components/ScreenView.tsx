@@ -3,7 +3,11 @@ import { View, ViewProps } from "react-native";
 
 import { useTheme } from "@/hooks/useTheme";
 
-export default function ScreenView(props: ViewProps) {
+type ScreenViewPropsT = ViewProps & {
+  statusBarPaddingTop?: boolean
+}
+
+export default function ScreenView({ statusBarPaddingTop = true, ...rest }: ScreenViewPropsT) {
   const { colors } = useTheme();
 
   return (
@@ -11,11 +15,11 @@ export default function ScreenView(props: ViewProps) {
       style={{
         flex: 1,
         backgroundColor: colors.background,
-        paddingTop: Constants.statusBarHeight + 10,
+        paddingTop: (statusBarPaddingTop ? Constants.statusBarHeight : 0) + 10,
         paddingHorizontal: 10,
         paddingBottom: 10
       }}
-      {...props}
+      {...rest}
     />
   )
 }

@@ -14,7 +14,7 @@ const MyDefaultTheme: Theme = {
     card: ThemeColors.light.background_thick,
     text: ThemeColors.light.foreground,
     border: ThemeColors.light.background_thin,
-    notification: ThemeColors.light.primary,
+    notification: ThemeColors.light.primary
   }
 }
 
@@ -26,7 +26,7 @@ const MyDarkTheme: Theme = {
     card: ThemeColors.dark.background_thick,
     text: ThemeColors.dark.foreground,
     border: ThemeColors.dark.background_thin,
-    notification: ThemeColors.dark.primary,
+    notification: ThemeColors.dark.primary
   }
 }
 
@@ -45,6 +45,14 @@ export default function RootLayout() {
     <ThemeProvider value={theme === 'dark' ? MyDarkTheme : MyDefaultTheme}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />
+
+        <Stack.Screen
+          name="(index)/daily-plan"
+          options={{
+            title: "Daily plan",
+            headerShown: true
+          }}
+        />
       </Stack>
 
       <StatusBar style="auto" />

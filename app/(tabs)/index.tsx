@@ -17,15 +17,15 @@ export default function IndexScreen() {
   return (
     <ScreenView>
       <View style={[UIStyles.flexAlign, styles.topBar]}>
+        <TouchableOpacity style={[UIStyles.btnIcon]}>
+          <SettingsIcon color={colors.foreground} size={Sizes.icon} />
+        </TouchableOpacity>
+
         <TouchableOpacity style={[UIStyles.btn]}>
-          <UserIcon color={colors.foreground} size={Sizes.icon} />
           <ThemeText>
             Support
           </ThemeText>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={[UIStyles.btnIcon]}>
-          <SettingsIcon color={colors.foreground} size={Sizes.icon} />
+          <UserIcon color={colors.foreground} size={Sizes.icon} />
         </TouchableOpacity>
       </View>
 

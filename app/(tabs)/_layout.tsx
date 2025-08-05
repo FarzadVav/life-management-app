@@ -21,10 +21,10 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name="journals"
+        name="index"
         options={{
           title: "",
-          tabBarIcon: ({ color, size }) => <PencilLineIcon color={color} size={size} />
+          tabBarIcon: ({ color, size }) => <HomeIcon color={color} size={size} />
         }}
       />
       <Tabs.Screen
@@ -35,10 +35,10 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="index"
+        name="journals"
         options={{
           title: "",
-          tabBarIcon: ({ color, size }) => <HomeIcon color={color} size={size} />
+          tabBarIcon: ({ color, size }) => <PencilLineIcon color={color} size={size} />
         }}
       />
     </Tabs>

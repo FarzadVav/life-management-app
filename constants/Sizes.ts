@@ -1,5 +1,9 @@
 export const Sizes = {
-  icon: 24,
+  icon: {
+    sm: 20,
+    md: 24,
+    lg: 28
+  },
   btnHeight: 40,
   spacing: {
     sm: 5,

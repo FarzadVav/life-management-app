@@ -67,6 +67,14 @@ export default function RootLayout() {
             headerShown: true
           }}
         />
+
+        <Stack.Screen
+          name="(journals)/goals"
+          options={{
+            title: "Goals",
+            headerShown: true
+          }}
+        />
       </Stack>
 
       <StatusBar style="auto" />

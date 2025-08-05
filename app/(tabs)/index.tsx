@@ -1,13 +1,13 @@
 import { Link } from "expo-router";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { ChevronRightIcon, SettingsIcon, UserIcon } from "lucide-react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
+import ScreenView from "@/components/ScreenView";
+import ThemeText from "@/components/theme/ThemeText";
 import { Sizes } from "@/constants/Sizes";
+import { ColorsT } from "@/constants/ThemeColors";
 import { useTheme } from "@/hooks/useTheme";
 import { UIStyles } from "@/utils/uiStyles";
-import ScreenView from "@/components/ScreenView";
-import { ColorsT } from "@/constants/ThemeColors";
-import ThemeText from "@/components/theme/ThemeText";
 
 export default function IndexScreen() {
   const { colors } = useTheme();
@@ -18,35 +18,35 @@ export default function IndexScreen() {
     <ScreenView>
       <View style={[UIStyles.flexAlign, styles.topBar]}>
         <TouchableOpacity style={[UIStyles.btnIcon]}>
-          <SettingsIcon color={colors.foreground} size={Sizes.icon} />
+          <SettingsIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
 
         <TouchableOpacity style={[UIStyles.btn]}>
           <ThemeText>
             Support
           </ThemeText>
-          <UserIcon color={colors.foreground} size={Sizes.icon} />
+          <UserIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
       </View>
 
       <Link style={[UIStyles.flexAlign, styles.box]} href={"/(index)/daily-plan"} asChild>
         <TouchableOpacity>
           <ThemeText>Daily plan</ThemeText>
-          <ChevronRightIcon color={colors.foreground} size={Sizes.icon} />
+          <ChevronRightIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
       </Link>
 
       <Link style={[UIStyles.flexAlign, styles.box]} href={"/(index)/weekly-plan"} asChild>
         <TouchableOpacity>
           <ThemeText>Weekly plan</ThemeText>
-          <ChevronRightIcon color={colors.foreground} size={Sizes.icon} />
+          <ChevronRightIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
       </Link>
 
       <Link style={[UIStyles.flexAlign, styles.box]} href={"/(index)/inbox"} asChild>
         <TouchableOpacity>
           <ThemeText>Inbox</ThemeText>
-          <ChevronRightIcon color={colors.foreground} size={Sizes.icon} />
+          <ChevronRightIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
       </Link>
     </ScreenView>

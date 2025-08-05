@@ -1,27 +1,26 @@
 import { Link } from "expo-router";
-import { ChevronRightIcon, SettingsIcon, UserIcon } from "lucide-react-native";
+import { SettingsIcon, UserIcon } from "lucide-react-native";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
-import ScreenView from "@/components/ScreenView";
-import ThemeText from "@/components/theme/ThemeText";
 import { Sizes } from "@/constants/Sizes";
-import { ColorsT } from "@/constants/ThemeColors";
 import { useTheme } from "@/hooks/useTheme";
-import { UIStyles } from "@/utils/uiStyles";
+import ScreenView from "@/components/ScreenView";
+import { createUIStyles } from "@/utils/uiStyles";
+import ThemeText from "@/components/theme/ThemeText";
 
 export default function IndexScreen() {
   const { colors } = useTheme();
 
-  const styles = createStyles(colors);
+  const uiStyles = createUIStyles(colors)
 
   return (
     <ScreenView>
-      <View style={[UIStyles.flexAlign, styles.topBar]}>
-        <TouchableOpacity style={[UIStyles.btnIcon]}>
+      <View style={[uiStyles.flexAlign, styles.topBar]}>
+        <TouchableOpacity style={[uiStyles.btnIcon]}>
           <SettingsIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={[UIStyles.btn]}>
+        <TouchableOpacity style={[uiStyles.btn]}>
           <ThemeText>
             Support
           </ThemeText>
@@ -29,41 +28,29 @@ export default function IndexScreen() {
         </TouchableOpacity>
       </View>
 
-      <Link style={[UIStyles.flexAlign, styles.box]} href={"/(index)/daily-plan"} asChild>
+      <Link style={[uiStyles.flexAlign, uiStyles.box]} href={"/(index)/daily-plan"} asChild>
         <TouchableOpacity>
           <ThemeText>Daily plan</ThemeText>
-          <ChevronRightIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
       </Link>
 
-      <Link style={[UIStyles.flexAlign, styles.box]} href={"/(index)/weekly-plan"} asChild>
+      <Link style={[uiStyles.flexAlign, uiStyles.box]} href={"/(index)/weekly-plan"} asChild>
         <TouchableOpacity>
           <ThemeText>Weekly plan</ThemeText>
-          <ChevronRightIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
       </Link>
 
-      <Link style={[UIStyles.flexAlign, styles.box]} href={"/(index)/inbox"} asChild>
+      <Link style={[uiStyles.flexAlign, uiStyles.box]} href={"/(index)/inbox"} asChild>
         <TouchableOpacity>
           <ThemeText>Inbox</ThemeText>
-          <ChevronRightIcon color={colors.foreground} size={Sizes.icon.md} />
         </TouchableOpacity>
       </Link>
     </ScreenView>
   );
 }
 
-const createStyles = (colors: ColorsT) => (
-  StyleSheet.create({
-    topBar: {
-      justifyContent: "space-between"
-    },
-    box: {
-      marginTop: Sizes.spacing.md,
-      backgroundColor: colors.background_thick,
-      justifyContent: "center",
-      height: 100,
-      borderRadius: 30
-    },
-  })
-)
+const styles = StyleSheet.create({
+  topBar: {
+    justifyContent: "space-between"
+  }
+})

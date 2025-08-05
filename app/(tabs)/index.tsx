@@ -2,13 +2,13 @@ import { SettingsIcon, UserIcon } from "lucide-react-native";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { Sizes } from "@/constants/Sizes";
+import { useTheme } from "@/hooks/useTheme";
 import { UIStyles } from "@/utils/uiStyles";
 import ScreenView from "@/components/ScreenView";
-import { useThemeColors } from "@/hooks/useTheme";
 import ThemeText from "@/components/theme/ThemeText";
 
 export default function IndexScreen() {
-  const { colors } = useThemeColors();
+  const { colors } = useTheme();
 
   return (
     <ScreenView>

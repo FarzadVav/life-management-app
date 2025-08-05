@@ -1,24 +1,23 @@
 import { Tabs } from 'expo-router';
 import { HomeIcon, ListTodoIcon, PencilLineIcon } from 'lucide-react-native';
 
-import { useThemeColors } from '@/hooks/useTheme';
+import { useTheme } from '@/hooks/useTheme';
 
 export default function TabsLayout() {
-  const { colors } = useThemeColors();
+  const { colors } = useTheme();
 
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: colors.foreground,
         tabBarInactiveTintColor: colors.background,
+        headerShown: false,
+        animation: "shift",
         tabBarStyle: {
-          backgroundColor: colors.background_thick,
           borderTopWidth: 2,
-          borderColor: colors.background_thin,
           height: 70,
           paddingTop: 15,
-        },
-        headerShown: false
+        }
       }}
     >
       <Tabs.Screen

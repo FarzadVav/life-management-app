@@ -1,6 +1,6 @@
 import { Text, TextProps } from 'react-native';
 
-import { useThemeColors } from '@/hooks/useTheme';
+import { useTheme } from '@/hooks/useTheme';
 import { ColorsT } from '@/constants/ThemeColors';
 
 type ThemeTextProps = TextProps & {
@@ -8,7 +8,7 @@ type ThemeTextProps = TextProps & {
 }
 
 export default function ThemeText({ color, style, ...rest }: ThemeTextProps) {
-  const { colors } = useThemeColors();
+  const { colors } = useTheme();
 
   return (
     <Text

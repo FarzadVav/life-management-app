@@ -1,8 +1,8 @@
-import { useTabTrigger } from "expo-router/ui";
 import { useEffect, useRef } from "react";
+import { useTabTrigger } from "expo-router/ui";
 import { Animated, StyleSheet, ViewProps } from "react-native";
 
-import { useThemeColors } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/useTheme";
 
 type CustomTabTriggerProps = ViewProps & {
   name: string;
@@ -12,7 +12,7 @@ export function CustomTabTrigger({ name, ...rest }: CustomTabTriggerProps) {
   const trigger = useTabTrigger({ name });
   const focused = trigger.trigger?.isFocused;
 
-  const { colors } = useThemeColors();
+  const { colors } = useTheme();
 
   const animate = useRef(new Animated.Value(focused ? 1 : 0)).current;
 

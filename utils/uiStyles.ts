@@ -29,12 +29,11 @@ export const createUIStyles = (colors: ColorsT) => (
     },
     btn: {
       height: Sizes.btnHeight,
-      paddingHorizontal: Sizes.btnHeight / 2,
       borderRadius: Sizes.btnHeight,
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
-      gap: Sizes.btnHeight / 4
+      gap: Sizes.btnHeight / 8
     },
     btnIcon: {
       height: Sizes.btnHeight,
@@ -43,11 +42,28 @@ export const createUIStyles = (colors: ColorsT) => (
       alignItems: "center",
       justifyContent: "center"
     },
-    box: {
-      marginTop: Sizes.spacing.md,
+    fillBtn: {
       backgroundColor: colors.background_thick,
-      height: 100,
-      borderRadius: 30
+      paddingHorizontal: Sizes.btnHeight / 2,
+    },
+    outlineBtn: {
+      borderWidth: 1,
+      borderColor: colors.background_thin,
+      paddingHorizontal: Sizes.btnHeight / 2,
+    },
+    textInput: {
+      borderWidth: 1,
+      borderColor: colors.background_thin,
+      color: colors.foreground,
+      height: Sizes.btnHeight,
+      borderRadius: Sizes.btnHeight,
+      paddingHorizontal: Sizes.btnHeight / 2,
+      flex: 1
+    },
+    box: {
+      backgroundColor: colors.background_thick,
+      padding: Sizes.spacing.md,
+      borderRadius: Sizes.spacing.md
     },
   })
 )
